@@ -26,10 +26,10 @@ public class HomeController {
 		
 		return "home";
 	}
-	@RequestMapping(value = "/login_form", method = RequestMethod.GET)
+	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String loginForm() {
-		logger.info("HomeController: loginForm() ENTER");
-		return "member/login";
+		logger.info("===Home-C: loginForm() IN===");
+		return "common/main";
 	}
 	
 }
