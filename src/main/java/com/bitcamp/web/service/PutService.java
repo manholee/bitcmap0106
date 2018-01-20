@@ -7,5 +7,5 @@ import org.springframework.stereotype.Service;
 @Service @FunctionalInterface
 public interface PutService {
 	//add하고 똑같다. 딜리트도 똑같은데 교육상 따로 함 합쳐도 가능
-	public void Put(Object o);
+	public void put(Object o);
 }

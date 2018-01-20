@@ -26,13 +26,13 @@
 </select>
 
 <insert id="insertMember" parameterType="com.bitcamp.web.domain.Member">
-  INSERT INTO MEMBER (id,pass,name,email,reg_date)
-  VALUES (#{id},#{pass},#{name},#{email},sysdate)
+  INSERT INTO MEMBER (id,pw,name,email,reg_date)
+  VALUES (#{id},#{pw},#{name},#{email},sysdate)
 </insert>
 
 <update id="updateMember" parameterType="com.bitcamp.web.domain.Member">
   UPDATE MEMBER set
-    pass = #{pass},
+    pass = #{pw},
     email = #{email},
   where id LIKE #{id}
 </update>
@@ -40,8 +40,6 @@
 <delete id="deleteMember" parameterType="com.bitcamp.web.domain.Member">
   DELETE FROM MEMBER where id LIKE #{id}
 </delete>
-
-
 
 <!-- board -->
 
@@ -65,15 +63,21 @@
 </select>
 
 <insert id="insertArticle" parameterType="com.bitcamp.web.domain.Board">
+	<selectKey keyProperty="seq" order="BEFORE" resultType="int">
+		SELECT SEQ.NEXTVAL AS seq FROM dual
+	</selectKey>
   INSERT INTO Board (seq,title,content,reg_date,id)
-  VALUES (seq.NEXTVAL,#{title},#{content},sysdate,#{id})
+  VALUES (seq.CURRVAL,#{title},#{content},sysdate,#{id})
 </insert>
 
 <update id="updateArticle" parameterType="com.bitcamp.web.domain.Board">
+	<selectKey keyProperty="seq" order="BEFORE" resultType="int">
+		SELECT SEQ.CURRVAL AS seq FROM dual
+	</selectKey>
   UPDATE Board set
     title = #{title},
     content = #{content},
-  where seq LIKE #{id}
+  where seq LIKE #{seq}
 </update>
 
 <delete id="deleteArticle" parameterType="com.bitcamp.web.domain.Board">

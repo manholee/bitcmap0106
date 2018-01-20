@@ -5,5 +5,5 @@ import org.springframework.stereotype.Service;
 @Service @FunctionalInterface
 public interface PostService {
 	
-	public void Post(Object o);
+	public void post(Object o);
 }

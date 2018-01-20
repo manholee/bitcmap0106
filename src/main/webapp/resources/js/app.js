@@ -35,11 +35,21 @@ app.login_page=(()=>{
 					method : 'POST',
 					data : JSON.stringify({
 						id : $('#userId').val(),
-						pass : $('#password').val()
+						pw : $('#password').val()
 					}), //Json언어는 자바 언어로 변경하라?
 					contentType : 'application/json',
-					success : data =>{
-						alert('succes'+ data.id);
+					success : d =>{
+						
+						alert('ID:' + d.id + ', ID2:' + $('#userId').val());
+						alert('PASS:' + d.pw + ', PASS2:' + $('#password').val());
+						
+						
+						if(d.id === $('#userId').val() && d.pw === $('#password').val()) {
+							alert("SUCCESS");
+						} else {
+							alert("FAIL");
+						}
+						alert('success'+ data.id);
 					},
 					error : (x,s,m)=>{ //메세지
 						alert('오류발생:' +m);

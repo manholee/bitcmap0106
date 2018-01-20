@@ -1,7 +1,7 @@
 package com.bitcamp.web.domain;
 
 public class Member {
-	private String id,pass,name,email,reg_date;
+	private String id,pw,name,email,reg_date;
 
 	public String getId() {
 		return id;
@@ -11,12 +11,12 @@ public class Member {
 		this.id = id;
 	}
 
-	public String getPass() {
-		return pass;
+	public String getPw() {
+		return pw;
 	}
 
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setPass(String paw) {
+		this.pw = paw;
 	}
 
 	public String getName() {
@@ -45,7 +45,7 @@ public class Member {
 
 	@Override
 	public String toString() {
-		return "Member [id=" + id + ", pass=" + pass + ", name=" + name + ", email=" + email + ", reg_date=" + reg_date
+		return "Member [id=" + id + ", pass=" + pw + ", name=" + name + ", email=" + email + ", reg_date=" + reg_date
 				+ "]";
 	}
 	

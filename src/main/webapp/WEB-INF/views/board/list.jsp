@@ -77,7 +77,7 @@
 
 <script>
 	$('#write_btn').click(function(){
-		location.href="${pageContext.request.contextPath}/board/write_form";
+		location.href="${pageContext.request.contextPath}/move/board/write";
 	});
 	
 </script>

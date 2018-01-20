@@ -21,10 +21,15 @@ public class AjaxController {
 	public Member login(@RequestBody Member member) {
 		logger.info("=== Ajax-c: writeForm() IN===");
 		logger.info("ID:" + member.getId());
-		logger.info("PASS:" + member.getPass());
+		logger.info("PASS:" + member.getPw());
+		
+		//ajax 예시로 보여줬음. 다음부터는 jsp 조합으로
+		// 람다처리, 모바일이랑 웹 동시 처리할떄 사용!
+		//GetService g = (Object o) ->  { return mapper.selectMember(member);};
+		//Member m = (Member) g.get(member);
 		
 		return (Member) new GetService() {
-			
+		
 			@Override
 			public Object get(Object o) {
 				
